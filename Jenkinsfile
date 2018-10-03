@@ -1,5 +1,3 @@
-#!/usr/bin/env groovy
-
 pipeline {
 
   agent { label "DO-S1" }
