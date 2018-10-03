@@ -1,7 +1,7 @@
 pipeline {
 
-//  agent { label "DO-S1" }
-  agent { label "master" }
+  agent { label "DO-S1" }
+//  agent { label "master" }
 
   environment {
     MESSAGE="Hello World"
