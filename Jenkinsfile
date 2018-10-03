@@ -1,6 +1,6 @@
 pipeline {
 
-  // agent { label "master" }
+  //  agent { label "master" }
   agent { label "DO-S1" }
 
   environment {
