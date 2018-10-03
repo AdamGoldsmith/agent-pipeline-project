@@ -1,12 +1,12 @@
 pipeline {
 
   // agent { label "master" }
-  agent {
-    label {
+  agent { label "DO-S1" }
+/*    label {
       label "DO-S1"
     }
   }
-
+*/
   environment {
     MESSAGE="Hello World"
     // you can set dynamic environment variables like this
