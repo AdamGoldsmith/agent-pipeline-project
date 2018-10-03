@@ -4,7 +4,7 @@ pipeline {
   agent { label "master" }
 
   environment {
-    MESSAGE="Hello World!"
+    MESSAGE="Hello World"
     // you can set dynamic environment variables like this
     CM = """${sh(
         returnStdout: true,
