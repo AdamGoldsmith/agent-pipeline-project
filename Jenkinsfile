@@ -31,8 +31,7 @@ pipeline {
     // print message
     stage('print message') {
       steps {
-        sh 'echo ${MESSAGE}'
-        sh 'echo ${CM}'
+        sh 'echo ${MESSAGE} ${CM}'
       }
     }
   }
