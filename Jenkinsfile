@@ -1,40 +1,21 @@
+def tasks = [:]
+
+tasks["task_1"] = {
+  stage ("task_1"){    
+    node('LOCAL-S1') {  
+        sh 'echo $NODE_NAME'
+    }
+  }
+}
+tasks["task_2"] = {
+  stage ("task_2"){    
+    node('LOCAL-S2') {  
+        sh 'echo $NODE_NAME'
+    }
+  }
+}
+
 pipeline {
-
-  //agent { label "master" }
-  agent { label "DO-S1" }
-  //agent { label "LOCAL-S1" }
-
-  environment {
-    MESSAGE="Hello World"
-    // you can set dynamic environment variables like this
-    CM = """${sh(
-        returnStdout: true,
-        script: 'git log -1 --pretty=%B'
-    )}"""
-  }
-
-  stages {
-
-    // clean out the existing workspace
-    stage ('clean workspace') {
-      steps {
-        step([$class: 'WsCleanup'])
-      }
-    }
-
-    // perform a checkout of the repo specified in the Jenkins job
-    stage('checkout') {
-      steps {
-         checkout scm
-      }
-    }
-
-    // print message
-    stage('print message') {
-      steps {
-        sh 'echo "${MESSAGE}\n${CM}"'
-      }
-    }
-  }
+  parallel tasks
 }
 
