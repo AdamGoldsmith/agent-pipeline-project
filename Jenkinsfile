@@ -16,6 +16,8 @@ tasks["task_2"] = {
 }
 
 pipeline {
-  parallel tasks
+  stages {
+    parallel tasks
+  }
 }
 
