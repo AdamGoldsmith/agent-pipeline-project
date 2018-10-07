@@ -14,6 +14,13 @@ tasks["task_2"] = {
     }
   }
 }
+tasks["task_3"] = {
+  stage ("task_3"){    
+    node('aws-S1') {  
+        sh 'echo $NODE_NAME'
+    }
+  }
+}
 
 parallel tasks
 
